@@ -4,36 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>gonzalo-console-messages test</title>
+    <title>gonzalo-task-repository test</title>
 
     <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../gonzalo-console-messages.html">
+    <link rel="import" href="../gonzalo-task-repository.html">
   </head>
   <body>
 
     <test-fixture id="BasicTestFixture">
       <template>
-        <gonzalo-console-messages></gonzalo-console-messages>
+        <gonzalo-task-repository></gonzalo-task-repository>
       </template>
     </test-fixture>
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <gonzalo-console-messages prop1="new-prop1"></gonzalo-console-messages>
+        <gonzalo-task-repository prop1="new-prop1"></gonzalo-task-repository>
       </template>
     </test-fixture>
 
     <script>
-      suite('gonzalo-console-messages', () => {
+      suite('gonzalo-task-repository', () => {
 
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'gonzalo-console-messages');
+          assert.equal(element.prop1, 'gonzalo-task-repository');
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello gonzalo-console-messages!');
+          assert.equal(elementHeader.innerHTML, 'Hello gonzalo-task-repository!');
         });
 
         test('setting a property on the element works', () => {

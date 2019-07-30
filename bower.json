@@ -1,10 +1,10 @@
 {
-  "name": "gonzalo-console-messages",
-  "main": "gonzalo-console-messages.html",
+  "name": "gonzalo-task-repository",
+  "main": "gonzalo-task-repository.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "iron-icons": "2.1.1",
-    "gonzalo-task-element": "git@github.com:polymer-practice/gonzalo-console-messages.git"
+    "gonzalo-task-element": "git@github.com:polymer-practice/gonzalo-task-repository.git"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",

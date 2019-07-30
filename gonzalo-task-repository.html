@@ -6,21 +6,19 @@
       :host {
         display: block;
       }
+
     </style>
-    <h2>Hello [[prop1]]!</h2>
   </template>
 
   <script>
-    class GonzaloTaskList extends Polymer.Element {
+    class GonzaloTaskRepository extends Polymer.Element {
       static get is() { return 'gonzalo-task-repository'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'gonzalo-task-repository'
-          }
+           
         };
       }
+    
     }
 
     window.customElements.define(GonzaloTaskRepository.is, GonzaloTaskRepository);
