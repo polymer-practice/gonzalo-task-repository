@@ -1,0 +1,28 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="gonzalo-console-messages">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    class GonzaloTaskList extends Polymer.Element {
+      static get is() { return 'gonzalo-console-messages'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'gonzalo-console-messages'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(GonzaloConsoleMessages.is, GonzaloConsoleMessages);
+  </script>
+</dom-module>
