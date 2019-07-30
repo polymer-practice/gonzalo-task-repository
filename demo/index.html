@@ -22,7 +22,11 @@
       <h3>Basic gonzalo-task-repository demo</h3>
       <demo-snippet>
         <template>
-          <gonzalo-task-repository></gonzalo-task-repository>
+            <gonzalo-task-repository offset="0" limit="3" id="repo"></gonzalo-task-repository>
+            <script>
+              let repo = document.getElementById('repo');
+              repo.addEventListener('page-event', event => { console.log(event.detail); });
+             </script>
         </template>
       </demo-snippet>
     </div>
