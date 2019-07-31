@@ -22,7 +22,11 @@
           limit: {
             type: Number,
             value: 5
-          }
+          },
+          newTask: {
+            type: Object,
+            observer: '_newTask'
+          },
         };
       } 
       static get observers() {
@@ -32,121 +36,121 @@
         super();
         this.tasklist = [
           {
-            key: 0,
+            id: 0,
             title: 'To do the weekly shopping',
             canceled: false,
             done: false
           },
           {
-            key: 1,
+            id: 1,
             title: 'Call the dentist',
             canceled: true,
             done: false
           },
           {
-            key: 2,
+            id: 2,
             title: 'Teach Polymer',
             canceled: false,
             done: true
           },
           {
-            key: 3,
+            id: 3,
             title: 'Go at vacations',
             canceled: false,
             done: false
           },
           {
-            key: 4,
+            id: 4,
             title: 'Finish the danger bot',
             canceled: true,
             done: false
           },
           {
-            key: 5,
+            id: 5,
             title: 'Learn scratch',
             canceled: false,
             done: true
           },
           {
-            key: 6,
+            id: 6,
             title: 'Build Skynet',
             canceled: false,
             done: false
           },
           {
-            key: 7,
+            id: 7,
             title: 'Learn to shot a gun',
             canceled: true,
             done: false
           },
           {
-            key: 8,
+            id: 8,
             title: 'To become president of a country',
             canceled: false,
             done: true
           },
           {
-            key: 9,
+            id: 9,
             title: 'To create a communist dictatorship',
             canceled: false,
             done: false
           },
           {
-            key: 10,
+            id: 10,
             title: 'To create a fascist dictatorship.',
             canceled: true,
             done: false
           },
           {
-            key: 11,
+            id: 11,
             title: 'To learn how to ride a hourse',
             canceled: false,
             done: true
           },
           {
-            key: 12,
+            id: 12,
             title: 'Organize a medieval tournament',
             canceled: false,
             done: false
           },
           {
-            key: 13,
+            id: 13,
             title: 'Buy two machinegunns for the medieval tournamente',
             canceled: true,
             done: false
           },
           {
-            key: 14,
+            id: 14,
             title: 'Draw cartoons about a black mouse',
             canceled: false,
             done: true
           },
           {
-            key: 15,
+            id: 15,
             title: 'Draw cartoons about a white duck who needs to go to a speech therapist',
             canceled: false,
             done: false
           },
           {
-            key: 16,
+            id: 16,
             title: 'Draw cartoons about a stupid and stuttering dog',
             canceled: true,
             done: false
           },
           {
-            key: 17,
+            id: 17,
             title: 'Hire a lawyer to avoid copyrights penalty from Disney',
             canceled: false,
             done: true
           },
           {
-            key: 18,
+            id: 18,
             title: 'Buy a laser saber',
             canceled: false,
             done: false
           },
           {
-            key: 19,
+            id: 19,
             title: 'Found a Jedi religion.',
             canceled: true,
             done: false
@@ -181,6 +185,22 @@
         setTimeout(() => {
           this.dispatchEvent(pageEvent);
         }, 300);
+      }
+
+      _newTask(newValue) {
+      
+      let taskEvent = new CustomEvent(
+        'task-event',
+        {
+          bubbles: true,
+          composed: true
+        }
+      );
+      this.tasklist.unshift(newValue);
+      console.log('Add new task: ', this.tasklist);
+      setTimeout(() => {
+        this.dispatchEvent(taskEvent);
+      }, 300);
       }
     }
 
