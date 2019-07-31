@@ -14,6 +14,14 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        .page-form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .page-form input {
+          width: 50px;
+        }
       </style>
     </custom-style>
   </head>
@@ -22,12 +30,28 @@
       <h3>Basic gonzalo-task-repository demo</h3>
       <demo-snippet>
         <template>
-            <gonzalo-task-repository offset="0" limit="3" id="repo"></gonzalo-task-repository>
+            <gonzalo-task-repository offset="5" limit="7" id="repo"></gonzalo-task-repository>
+            <div class="page-form">
+              <label for="offset">Offset</label>
+              <input id="offset" type="text">
+              <label for="limit">Limit</label>
+              <input id="limit" type="text">
+            </div>
             <script>
               let repo = document.getElementById('repo');
-              repo.addEventListener('page-event', event => { 
-                console.log(event.detail); 
+              repo.addEventListener('page-event', event => { console.log(event.detail); });
+              let offset = document.getElementById('offset');
+              let limit = document.getElementById('limit');
+              
+              offset.addEventListener('blur', (event) => {
+                const value = event.target.value;
+                repo.offset = Number(value);
               });
+              limit.addEventListener('blur', (event) => {
+                const value = event.target.value;
+                repo.limit = Number(value);
+              });
+
              </script>
         </template>
       </demo-snippet>
