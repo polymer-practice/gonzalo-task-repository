@@ -26,7 +26,7 @@
         };
       } 
       static get observers() {
-        return [ '_getPage(offset, limit)']
+        return [ 'getPage(offset, limit)']
       }
         constructor() {
         super();
@@ -154,7 +154,7 @@
         ]
       }
         
-      _getPage(offset, limit) {
+      getPage(offset, limit) {
         const leng = this.tasklist.length;
         let start = offset;
         let end = offset + limit;
