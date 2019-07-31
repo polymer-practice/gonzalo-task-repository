@@ -27,6 +27,10 @@
             type: Object,
             observer: '_newTask'
           },
+          updateTask: {
+            type: Object,
+            observer: '_updateTask'
+          }
         };
       } 
       static get observers() {
@@ -188,7 +192,7 @@
       }
 
       _newTask(newValue) {
-      
+      newValue.id = this.tasklist.length;
       let taskEvent = new CustomEvent(
         'task-event',
         {
@@ -202,6 +206,27 @@
         this.dispatchEvent(taskEvent);
       }, 300);
       }
+
+      _updateTask(valueToUpdate) {
+        const index = this.tasklist.findIndex(task => task.id === valueToUpdate.id);
+        this.tasklist[index].title = valueToUpdate.title;
+        this.tasklist[index].canceled = valueToUpdate.canceled;
+        this.tasklist[index].done = valueToUpdate.done;
+        let taskEvent = new CustomEvent(
+          'task-updated',
+          {
+            bubbles: true,
+            composed: true
+          }
+        );
+       
+        console.log('Updated task: ', this.tasklist[index]);
+        console.log('Updated task: ', this.tasklist);
+        setTimeout(() => {
+          this.dispatchEvent(taskEvent);
+        }, 300);
+      }
+
     }
 
     window.customElements.define(GonzaloTaskRepository.is, GonzaloTaskRepository);

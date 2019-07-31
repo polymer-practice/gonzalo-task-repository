@@ -38,6 +38,8 @@
               <input id="limit" type="text">
               <label for="newTask">New Task</label>
               <input id="newTask" type="text">
+              <label for="update">Update Id</label>
+              <input id="update" type="text">
             </div>
             <script>
               let repo = document.getElementById('repo');
@@ -45,6 +47,7 @@
               let offset = document.getElementById('offset');
               let limit = document.getElementById('limit');
               let newTask = document.getElementById('newTask');
+              let update = document.getElementById('update');
               
               offset.addEventListener('blur', (event) => {
                 const value = event.target.value;
@@ -64,11 +67,16 @@
                 };
               });
 
-              // repo.newTask = {
-              //   title: 'Observable',
-              //   canceled: false,
-              //   done: true
-              // }
+              update.addEventListener('blur', (event) => {
+                const task = {
+                  id: Number(event.target.value),
+                  title: 'Task updated',
+                  canceled: true,
+                  done: false
+                }
+
+                repo.updateTask = task;
+              });
 
              </script>
         </template>
